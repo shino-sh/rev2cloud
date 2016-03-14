@@ -1,0 +1,30 @@
+#loading-view {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+.carousel-indicators {
+  position: relative;
+}
+.carousel-indicators li {
+  border: 1px solid black;
+}
+.carousel-indicators .active {
+  background-color: black;
+}
+.carousel-control.left {
+  background-image: none;
+}
+.carousel-control.right {
+  background-image: none;
+}
+.carousel-control {
+  font-size: 50px;
+  color: black;
+}
+.carousel-control .glyphicon-chevron-left {
+  left: -40%;
+}
+.carousel-control .glyphicon-chevron-right {
+  right: -40%;
+}

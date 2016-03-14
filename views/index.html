@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+% include('header.html', title='')
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+	<!-- Preloader -->
+	<div id="preloader">
+	  <div id="load"></div>
+	</div>
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <h1>Recast</h1>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#intro">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#service">Application</a></li>
+        <li><a href="#contact">Request Form</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Example menu</a></li>
+            <li><a href="#">Example menu</a></li>
+            <li><a href="#">Example menu</a></li>
+          </ul>
+        </li>
+      </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	<!-- Section: intro -->
+    <section id="intro" class="intro">
+	
+		<div class="slogan">
+			<h2>Welcome to <span class="text_color">Recast</span> </h2>
+			<h4>We are group of gentlemen making visualization application.</h4>
+		</div>
+		<div class="page-scroll">
+			<a href="#service" class="btn btn-circle">
+				<i class="fa fa-angle-double-down animated"></i>
+			</a>
+		</div>
+    </section>
+	<!-- /Section: intro -->
+
+	<!-- Section: services -->
+  <section id="service" class="home-section text-center bg-gray">
+		
+		<div class="heading-about">
+			<div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow bounceInDown" data-wow-delay="0.4s">
+              <div class="section-heading">
+                <h2>Application</h2>
+                <i class="fa fa-2x fa-angle-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-lg-offset-5">
+          <hr class="marginbot-50">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-md-3"></div>
+        <div class="col-sm-6 col-md-6">
+          <div class="wow fadeInLeft" data-wow-delay="0.2s">
+            <div class="service-box">
+              <div class="service-icon">
+                <img src="img/icons/service-icon-4.png" alt="" />
+              </div>
+              <div class="service-desc">
+                <h5>Recast</h5>
+                <p>This application transforms from Amazon reviews about any product<br /> into easy-visible word cloud.<br />And we can filter these reviews with keyword from word cloud.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3"></div>
+      </div>		
+		</div>
+	</section>
+	<!-- /Section: services -->
+
+	<!-- Section: contact -->
+  <section id="contact" class="home-section text-center">
+		<div class="heading-contact">
+			<div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow bounceInDown" data-wow-delay="0.4s">
+              <div class="section-heading">
+                <h2>Request Form</h2>
+                <i class="fa fa-2x fa-angle-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+
+		<div class="container">
+
+		<div class="row">
+			<div class="col-lg-2 col-lg-offset-5">
+				<hr class="marginbot-50">
+			</div>
+		</div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="boxed-grey">
+          <form id="contact-form" method="Get" action="/show">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="item_id">
+                    Item ID</label>
+                  <input type="text" id="item_id" name="item_id" class="form-control" placeholder="Enter item ID" required="required" />
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                    Send Request</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>	
+	</section>
+	<!-- /Section: contact -->
+
+	<!-- Section: about -->
+    <section id="about" class="home-section text-center">
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>About us</h2>
+					<i class="fa fa-2x fa-angle-down"></i>
+
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+
+		<div class="row">
+			<div class="col-lg-2 col-lg-offset-5">
+				<hr class="marginbot-50">
+			</div>
+		</div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3"></div>
+      <div class="col-xs-6 col-sm-3 col-md-3">
+        <div class="wow bounceInUp" data-wow-delay="0.2s">
+          <div class="team boxed-grey">
+            <div class="inner">
+              <h5>@shino-sh</h5>
+              <p class="subtitle"></p>
+              <div class="avatar"><img src="https://avatars1.githubusercontent.com/u/9264040?v=3&s=460" alt="" class="img-responsive img-circle" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-3 col-md-3">
+        <div class="wow bounceInUp" data-wow-delay="0.2s">
+          <div class="team boxed-grey">
+            <div class="inner">
+              <h5>@junya666</h5>
+              <p class="subtitle"></p>
+              <div class="avatar"><img src="https://avatars1.githubusercontent.com/u/12378458?v=3&s=460" alt="" class="img-responsive img-circle" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3"></div>
+		</div>
+	</section>
+	<!-- /Section: about -->
+	
+
+
+  % include('footer.html')
+
+  <!-- Core JavaScript Files -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>	
+  <script src="js/jquery.scrollTo.js"></script>
+  <script src="js/wow.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+% include('header.html', title='')
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+	<!-- Preloader -->
+	<div id="preloader">
+	  <div id="load"></div>
+	</div>
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <h1>Recast</h1>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#intro">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#service">Application</a></li>
+        <li><a href="#contact">Request Form</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Example menu</a></li>
+            <li><a href="#">Example menu</a></li>
+            <li><a href="#">Example menu</a></li>
+          </ul>
+        </li>
+      </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	<!-- Section: about -->
+    <section id="about" class="home-section text-center">
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>Input Value</h2>
+					<i class="fa fa-2x fa-angle-down"></i>
+
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+
+		<div class="row">
+			<div class="col-lg-2 col-lg-offset-5">
+				<hr class="marginbot-50">
+			</div>
+		</div>
+    <div class="row">
+      <div class="col-sm-4 col-md-4"></div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="wow bounceInUp" data-wow-delay="0.2s">
+          <div class="team boxed-grey">
+            <div class="inner">
+              <h5>@item_id</h5>
+              <p class="subtitle">{{params["item_id"]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4"></div>
+		</div>
+	</section>
+	<!-- /Section: about -->
+
+
+	<!-- Section: about -->
+  <section id="about" class="home-section text-center">
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>Word Cloud</h2>
+					<i class="fa fa-2x fa-angle-down"></i>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="wow bounceInUp" data-wow-delay="0.2s">
+          <div class="team boxed-grey">
+            <div class="inner" id="word-cloud">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12" style="height: 10px;"></div>
+    </div>
+	</section>
+	<!-- /Section: about -->
+
+
+	<!-- Section: review -->
+  <section id="review" class="home-section text-center">
+		<div class="heading-about">
+			<div id="reviews" class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>Reviews</h2>
+            <i class="fa fa-2x fa-angle-down"></i>
+					</div>
+          <div id="badge-area"></div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+
+		<div class="row">
+			<div class="col-lg-2 col-lg-offset-5">
+				<hr class="marginbot-50">
+			</div>
+		</div>
+
+		<!-- carousel -->
+		<div id="carousel_sample" class="carousel slide" data-ride="carousel" data-interval="0">
+			  <!--
+			  <ol class="carousel-indicators">
+				</ol>
+			  <div class="carousel-inner">
+			  </div>
+        -->
+		</div>
+		<!-- carousel -->
+
+	</section>
+	<!-- /Section: review -->
+
+  % include('footer.html')
+
+  <!-- Core JavaScript Files -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>	
+  <script src="js/jquery.scrollTo.js"></script>
+  <script src="js/wow.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script src="js/custom.js"></script>
+  <!-- JQcloud -->
+  <script type="text/javascript" src="js/jqcloud.min.js"></script>
+
+  <script>
+    $(function(){
+	  	var loadingPage = 1;
+      var allReviews = [];
+      var clickWord = [];
+      loadingView(true);
+  		myajax();
+      
+	  	function myajax(){
+				$.ajax({
+        type: 'GET',
+    	  url: '/json?item_id='+'{{params["item_id"]}}'+'&page='+ loadingPage,
+     	  dataType: 'json',
+        
+				}).done(function(json){
+					var nouns = json["nouns"];
+					var reviews = json["reviews"];
+          //allReviews = allReviews.concat(reviews);
+          Array.prototype.push.apply(allReviews, reviews);
+
+					if(reviews.length==0){
+						console.log("zero reviews in page "+ loadingPage);
+						return;
+					}
+					display_review();
+					add_wordcloud(nouns);
+
+					console.log("ajax success "+ loadingPage);
+					loadingPage++;
+					myajax();
+
+				}).fail(function(){
+					console.log("ajax error "+ loadingPage);
+				});
+  		}
+
+			function display_review(){
+        $('div#carousel_sample').empty();
+          
+        console.log('allReviews.length:'+ allReviews.length);  
+        console.log('clickWord.length:'+clickWord.length);
+        var reviews;
+        if(clickWord.length==0){
+          reviews = $.extend(true, [], allReviews);
+        } else {
+          reviews = $.extend(true, [], allReviews).filter(function(review){
+            var bool = true;
+            clickWord.forEach(function(word){
+              bool = bool && review.match(new RegExp(word,'i'));
+            });
+            return bool;
+          });
+        }
+
+        var page=1;
+        var n = reviews.length;
+        while(reviews.length!=0){
+          var review10 = reviews.splice(0,10);
+			    if(page==1){
+				  	loadingView(false);
+            $('div#carousel_sample').append('<ol class="carousel-indicators"></ol><div class="carousel-inner"></div>');
+	  				$('div.carousel-inner').append('<div class="item active"><div class="row" id="reviews'+ page +'"></div></div>');
+            $('div#carousel_sample').append('<a class="left carousel-control" href="#carousel_sample" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a><a class="right carousel-control" href="#carousel_sample" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>');
+			  	}else{
+				  	$('div.carousel-inner').append('<div class="item"><div class="row" id="reviews'+ page +'"></div></div>');
+			  	}
+
+          var i = (page-1)*10+1;
+		  		review10.forEach(function(rev){
+            rev = rev.replace(/\n/g, '<br />');
+			  	  $('div#reviews'+page).append('<div class="col-xs-12 col-sm-12 col-md-12"><div class="wow bounceInUp" data-wow-delay="0.2s"><div class="team boxed-grey"><div class="inner"><h5>Review '+ i + '</h5><p id="review'+i+'" style="text-align:left;">' + focus_word(rev) + '</p></div></div></div></div><div class="col-xs-12 col-sm-12 col-md-12" style="height: 10px;"></div>');
+            i = i + 1;
+          });
+
+          if(page == 1){
+            $("ol.carousel-indicators").append('<li data-target="#carousel_sample" data-slide-to="' + (page-1) + '" class="active"></li>');
+          }else{
+            $("ol.carousel-indicators").append('<li data-target="#carousel_sample" data-slide-to="' + (page-1) + '"></li>');
+          }
+
+          page = page + 1;
+        }
+
+        $('.btn-total').find('span').text(n);
+      }
+
+      function focus_word(review){
+        if(clickWord.length!=0){
+          clickWord.forEach(function(word){
+            review = review.replace(new RegExp(word,'gi'),'<b><font color="#67b0d1">'+word+'</font></b>');
+          });
+        }
+        return review;
+      }
+
+
+      function display_badge(word){
+        n_reviews = $(".carousel-inner").find("p").length
+        if($(".btn-total").length == 0){
+          $('#badge-area').append('<button class="btn btn-info btn-total" type="button"><span class="badge">'+ n_reviews +'</span></button>');        
+        }
+        $('#badge-area').append('<button class="btn btn-info btn-word" type="button">'+ word +'<span class="badge"></span></button>');        
+      }
+
+      $(document).on('click', '.btn-word', function(){
+        var word = $(this).text();
+        for(i=0; i<clickWord.length; i++){
+          if(clickWord[i] == word){
+            clickWord.splice(i, 1);
+            $(this).remove();
+          }
+        }
+        if(clickWord.length == 0){
+          $(".btn-total").remove();
+        }
+        display_review();
+      });
+
+      function add_wordcloud(nouns){
+        var words=[];
+        nouns.forEach(function(noun){
+          words.push({
+            text: noun[0],
+            weight: noun[1],
+            handlers : {
+              mouseenter: function() {
+                $(this).css('cursor','pointer')
+              },
+              click: function() {
+                clickWord.push(noun[0]);
+                display_review();
+                display_badge(noun[0]);
+
+                var position = $("div#reviews").find(".section-heading").offset().top - $(".navbar.navbar-custom").height();
+                $("html,body").animate({
+                  scrollTop : position
+                }, {
+                  queue : false
+                });
+              }
+            }
+          });
+        });
+        $('#word-cloud').empty();
+        if($('#word-cloud').hasClass('jqcloud')){
+          $('#word-cloud').jQCloud('update', words, {
+            height: 600,
+            autoResize: true,
+            fontSize: {
+              from: 0.1,
+              to: 0.02
+            }
+          });
+        }else{
+          $('#word-cloud').jQCloud(words, {
+            height: 600,
+            autoResize: true,
+            fontSize: {
+              from: 0.1,
+              to: 0.02
+            }
+          });
+        }
+      }
+
+      function loadingView(flag) {
+        if(flag){
+          $('section#review').append('<div id="loading-view"><img src="img/loading.gif" width="100" height="100"></div>');
+        }else{
+          $('#loading-view').remove();
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
